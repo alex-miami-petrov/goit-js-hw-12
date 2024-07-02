@@ -19,7 +19,6 @@ export function renderImages(images) {
 
   const columnWidth = '360px';
   const rowHeight = '200px';
-  // const gap = '24px';
 
   images.forEach(image => {
     const listItem = document.createElement('li');
