@@ -11,6 +11,7 @@ const loadMoreBtn = document.getElementById('load-more');
 let searchTerm = '';
 let currentPage = 1;
 let totalHits = 0;
+let cardHeight = 0;
 
 searchForm.addEventListener('submit', async function (event) {
   event.preventDefault();
@@ -54,10 +55,21 @@ async function fetchImagesAndUpdateDOM() {
     const { hits, totalHits: newTotalHits } = response.data;
     totalHits = newTotalHits;
 
+    if (cardHeight === 0) {
+      const firstCard = gallery.querySelector('.gallery-item');
+      if (firstCard) {
+        cardHeight = firstCard.getBoundingClientRect().height;
+      }
+    }
+
     renderImages(hits);
 
     if (hits.length > 0) {
       loadMoreBtn.style.display = 'block';
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
     } else {
       showErrorMessage();
     }
