@@ -38,23 +38,26 @@ export function renderImages(images) {
     info.classList.add('image-info');
 
     const likes = document.createElement('p');
-    likes.textContent = `Likes ${image.likes}`;
+    // likes.textContent = `Likes ${image.likes}`;
+    likes.innerHTML = `Likes <span>${image.likes}</span>`;
 
     info.appendChild(likes);
 
     const views = document.createElement('p');
-    views.textContent = `Views ${image.views}`;
+    // views.textContent = `Views ${image.views}`;
+    views.innerHTML = `Views <span>${image.views}</span>`;
 
     info.appendChild(views);
 
     const comments = document.createElement('p');
-    comments.textContent = `Comments ${image.comments}`;
+    // comments.textContent = `Comments ${image.comments}`;
+    comments.innerHTML = `Comments <span>${image.comments}</span>`;
 
     info.appendChild(comments);
 
     const downloads = document.createElement('p');
-    downloads.textContent = `Downloads ${image.downloads}`;
-    // downloads.innerHTML = `Downloads <span style="font-weight: 400; font-size: 12px; line-height: 2; letter-spacing: 0.04em; color: #2e2f42;">${image.views}</span>`;
+    // downloads.textContent = `Downloads ${image.downloads}`;
+    downloads.innerHTML = `Downloads <span>${image.downloads}</span>`;
     info.appendChild(downloads);
 
     listItem.appendChild(link);
