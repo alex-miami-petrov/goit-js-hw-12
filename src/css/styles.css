@@ -216,8 +216,6 @@ img {
 .gallery-item {
   width: 320px;
   text-align: center;
-
-  /* overflow: hidden; */
 }
 
 .gallery-item img {
