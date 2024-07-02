@@ -1,10 +1,11 @@
 import iziToast from 'izitoast';
-import { fetchImages } from './js/pixabay-api.js';
+import axios from 'axios';
 import { renderImages } from './js/render-functions.js';
 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 const loader = document.getElementById('loader');
+const gallery = document.getElementById('gallery');
 
 searchForm.addEventListener('submit', async function (event) {
   event.preventDefault();
@@ -24,7 +25,15 @@ searchForm.addEventListener('submit', async function (event) {
 
   try {
     loader.style.display = 'block';
-    const images = await fetchImages(searchTerm);
+    const response = await axios.get('https://pixabay.com/api/', {
+      params: {
+        key: '44685335-fea0dcf7b7c0436df223e42aa',
+        q: searchTerm,
+        image_type: 'photo',
+      },
+    });
+
+    const images = response.data.hits;
     renderImages(images);
   } catch (error) {
     console.error('Error searching images:', error);
