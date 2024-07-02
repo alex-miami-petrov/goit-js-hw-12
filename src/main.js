@@ -36,6 +36,7 @@ searchForm.addEventListener('submit', async function (event) {
 
 loadMoreBtn.addEventListener('click', async function () {
   currentPage += 1;
+  loadMoreBtn.style.display = 'none';
   await fetchImagesAndUpdateDOM();
 });
 
