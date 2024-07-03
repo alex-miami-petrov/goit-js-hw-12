@@ -10,7 +10,7 @@ const lightbox = new SimpleLightbox('.gallery a');
 
 export function renderImages(images) {
   const gallery = document.getElementById('gallery');
-  gallery.innerHTML = '';
+  // gallery.innerHTML = '';
 
   if (images.length === 0) {
     showErrorMessage();
